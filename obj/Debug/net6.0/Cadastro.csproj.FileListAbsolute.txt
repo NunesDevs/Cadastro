@@ -1,0 +1,15 @@
+C:\Users\mathe\Documents\C#\Cadastro\Cadastro\bin\Debug\net6.0\Cadastro.exe
+C:\Users\mathe\Documents\C#\Cadastro\Cadastro\bin\Debug\net6.0\Cadastro.deps.json
+C:\Users\mathe\Documents\C#\Cadastro\Cadastro\bin\Debug\net6.0\Cadastro.runtimeconfig.json
+C:\Users\mathe\Documents\C#\Cadastro\Cadastro\bin\Debug\net6.0\Cadastro.dll
+C:\Users\mathe\Documents\C#\Cadastro\Cadastro\bin\Debug\net6.0\ref\Cadastro.dll
+C:\Users\mathe\Documents\C#\Cadastro\Cadastro\bin\Debug\net6.0\Cadastro.pdb
+C:\Users\mathe\Documents\C#\Cadastro\Cadastro\obj\Debug\net6.0\Cadastro.csproj.AssemblyReference.cache
+C:\Users\mathe\Documents\C#\Cadastro\Cadastro\obj\Debug\net6.0\Cadastro.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mathe\Documents\C#\Cadastro\Cadastro\obj\Debug\net6.0\Cadastro.AssemblyInfoInputs.cache
+C:\Users\mathe\Documents\C#\Cadastro\Cadastro\obj\Debug\net6.0\Cadastro.AssemblyInfo.cs
+C:\Users\mathe\Documents\C#\Cadastro\Cadastro\obj\Debug\net6.0\Cadastro.csproj.CoreCompileInputs.cache
+C:\Users\mathe\Documents\C#\Cadastro\Cadastro\obj\Debug\net6.0\Cadastro.dll
+C:\Users\mathe\Documents\C#\Cadastro\Cadastro\obj\Debug\net6.0\ref\Cadastro.dll
+C:\Users\mathe\Documents\C#\Cadastro\Cadastro\obj\Debug\net6.0\Cadastro.pdb
+C:\Users\mathe\Documents\C#\Cadastro\Cadastro\obj\Debug\net6.0\Cadastro.genruntimeconfig.cache
