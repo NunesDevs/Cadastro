@@ -26,12 +26,12 @@ Painel de funcionários ativo!
 
 ################################
 
- - Informe a opção desejada -
-1 - Listar funcionários
-2 - Inserir novo funcionário
-3 - Atualizar dados
-4 - Excluir funcionário
-5 - Visualizar funcionários
-C - Limpar Tela
-X - Sair
- - Obrigado por utilizar nossos serviços.
+ Informe a opção desejada
+ 1 - Listar funcionários
+ 2 - Inserir novo funcionário
+ 3 - Atualizar dados
+ 4 - Excluir funcionário
+ 5 - Visualizar funcionários
+ C - Limpar Tela
+ X - Sair
+ Obrigado por utilizar nossos serviços.
