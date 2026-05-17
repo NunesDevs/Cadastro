@@ -17,7 +17,6 @@ Antes de alterar código:
 - Não fazer push/deploy sem confirmação.
 - Preservar conteúdo manual fora dos blocos automáticos.
 <!-- AUTO-GENERATED:END -->
-
 <!-- JARVIS-AUTO:START -->
 Leia `docs/ai-context` antes de agir. Não faça push/deploy sem autorização. Preserve conteúdo manual fora dos blocos automáticos.
 <!-- JARVIS-AUTO:END -->

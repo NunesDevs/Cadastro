@@ -18,7 +18,6 @@ Nenhum script detectado.
 ## Regra
 - Nunca fazer deploy sem autorização explícita.
 <!-- AUTO-GENERATED:END -->
-
 <!-- JARVIS-AUTO:START -->
 ## Deploy
 - Deploy automático proibido.

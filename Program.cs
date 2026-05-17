@@ -1,4 +1,4 @@
-﻿using Cadastro;
+using Cadastro;
 using System;
 
 namespace Cadastro
@@ -6,167 +6,268 @@ namespace Cadastro
     class Program
     {
         static cadastroRepo repositorio = new cadastroRepo();
+
         static void Main(string[] args)
         {
             string opcaoUsuario = ObterOpcaoUsuario();
 
-			while (opcaoUsuario.ToUpper() != "X")
-			{
-				switch (opcaoUsuario)
-				{
-					case "1":
-						ListarFuncionarios();
-						break;
-					case "2":
-						InserirFuncionarios();
-						break;
-					case "3":
-						AtualizarFuncionarios();
-						break;
-					case "4":
-						ExcluirFuncionarios();
-						break;
-					case "5":
-						VisualizarFuncionarios();
-						break;
-					case "C":
-						Console.Clear();
-						break;
+            while (opcaoUsuario != "X")
+            {
+                switch (opcaoUsuario)
+                {
+                    case "1":
+                        ListarFuncionarios();
+                        break;
+                    case "2":
+                        InserirFuncionarios();
+                        break;
+                    case "3":
+                        AtualizarFuncionarios();
+                        break;
+                    case "4":
+                        ExcluirFuncionarios();
+                        break;
+                    case "5":
+                        VisualizarFuncionarios();
+                        break;
+                    case "C":
+                        Console.Clear();
+                        break;
+                    default:
+                        Console.WriteLine("Opção inválida. Tente novamente.");
+                        break;
+                }
 
-					default:
-						throw new ArgumentOutOfRangeException();
-				}
+                opcaoUsuario = ObterOpcaoUsuario();
+            }
 
-				opcaoUsuario = ObterOpcaoUsuario();
-			}
-
-			Console.WriteLine("Obrigado por utilizar nossos serviços.");
-			Console.ReadLine();
+            Console.WriteLine("Obrigado por utilizar nossos serviços.");
+            Console.ReadLine();
         }
 
         private static void ExcluirFuncionarios()
-		{
-			Console.Write("Digite o id do Funcionário: ");
-			int indiceFuncionarios = int.Parse(Console.ReadLine());
+        {
+            int? indiceFuncionarios = LerIdFuncionario("Digite o id do Funcionário: ");
+            if (indiceFuncionarios is null)
+            {
+                return;
+            }
 
-			repositorio.Exclui(indiceFuncionarios);
-		}
+            repositorio.Exclui(indiceFuncionarios.Value);
+        }
 
         private static void VisualizarFuncionarios()
-		{
-			Console.Write("Digite o id do funcionário: ");
-			int indiceFuncionarios = int.Parse(Console.ReadLine());
+        {
+            int? indiceFuncionarios = LerIdFuncionario("Digite o id do funcionário: ");
+            if (indiceFuncionarios is null)
+            {
+                return;
+            }
 
-			var serie = repositorio.RetornarPorId(indiceFuncionarios);
+            var funcionario = repositorio.RetornarPorId(indiceFuncionarios.Value);
 
-			Console.WriteLine(serie);
-		}
+            Console.WriteLine(funcionario);
+        }
 
         private static void AtualizarFuncionarios()
-		{
-			Console.Write("Digite o id do funcionário: ");
-			int indiceFuncionarios = int.Parse(Console.ReadLine());
+        {
+            int? indiceFuncionarios = LerIdFuncionario("Digite o id do funcionário: ");
+            if (indiceFuncionarios is null)
+            {
+                return;
+            }
 
-			foreach (int i in Enum.GetValues(typeof(Genero)))
-			{
-				Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genero), i));
-			}
-			Console.Write("Digite o gênero entre as opções acima: ");
-			int entradaGenero = int.Parse(Console.ReadLine());
+            ExibirOpcoesEnum<Genero>();
+            Genero? entradaGenero = LerEnum<Genero>("Digite o gênero entre as opções acima: ");
+            if (entradaGenero is null)
+            {
+                return;
+            }
 
-			Console.Write("Digite o seu nome: ");
-			string entradaNome = Console.ReadLine();
+            string? entradaNome = LerTextoObrigatorio("Digite o seu nome: ");
+            if (entradaNome is null)
+            {
+                return;
+            }
 
-			Console.Write("Digite a sua idade: ");
-			int entradaIdade = int.Parse(Console.ReadLine());
-            foreach (int i in Enum.GetValues(typeof(Cargo)))
-			{
-				Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Cargo), i));
-			}
-			Console.Write("Digite o seu cargo entre as opções acima: ");
-			int entradaCargo = int.Parse(Console.ReadLine());
+            int? entradaIdade = LerInteiro("Digite a sua idade: ", minimo: 0);
+            if (entradaIdade is null)
+            {
+                return;
+            }
 
-			CadastroProj atualizaFuncionarios = new CadastroProj(id: indiceFuncionarios,
-										genero: (Genero)entradaGenero,
-										nome: entradaNome,
-										idade: entradaIdade,
-										cargo: (Cargo)entradaCargo);
+            ExibirOpcoesEnum<Cargo>();
+            Cargo? entradaCargo = LerEnum<Cargo>("Digite o seu cargo entre as opções acima: ");
+            if (entradaCargo is null)
+            {
+                return;
+            }
 
-			repositorio.Atualiza(indiceFuncionarios, atualizaFuncionarios);
-		}
+            CadastroProj atualizaFuncionarios = new CadastroProj(id: indiceFuncionarios.Value,
+                                        genero: entradaGenero.Value,
+                                        nome: entradaNome,
+                                        idade: entradaIdade.Value,
+                                        cargo: entradaCargo.Value);
+
+            repositorio.Atualiza(indiceFuncionarios.Value, atualizaFuncionarios);
+        }
+
         private static void ListarFuncionarios()
-		{
-			Console.WriteLine("Listar funcionários");
+        {
+            Console.WriteLine("Listar funcionários");
 
-			var lista = repositorio.Lista();
+            var lista = repositorio.Lista();
 
-			if (lista.Count == 0)
-			{
-				Console.WriteLine("Nenhum funcionário cadastrado.");
-				return;
-			}
+            if (lista.Count == 0)
+            {
+                Console.WriteLine("Nenhum funcionário cadastrado.");
+                return;
+            }
 
-			foreach (var funcionario in lista)
-			{
+            foreach (var funcionario in lista)
+            {
                 var excluido = funcionario.retornaExcluido();
-                
-				Console.WriteLine("#ID {0}: - {1} {2}", funcionario.retornarId(), funcionario.retornoNome(), (excluido ? "*Excluído*" : ""));
-			}
-		}
+
+                Console.WriteLine("#ID {0}: - {1} {2}", funcionario.retornarId(), funcionario.retornoNome(), (excluido ? "*Excluído*" : ""));
+            }
+        }
 
         private static void InserirFuncionarios()
-		{
-			Console.WriteLine("Inserir novo funcionário");
+        {
+            Console.WriteLine("Inserir novo funcionário");
 
-			foreach (int i in Enum.GetValues(typeof(Genero)))
-			{
-				Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genero), i));
-			}
-			Console.Write("Digite o gênero entre as opções acima: ");
-			int entradaGenero = int.Parse(Console.ReadLine());
+            ExibirOpcoesEnum<Genero>();
+            Genero? entradaGenero = LerEnum<Genero>("Digite o gênero entre as opções acima: ");
+            if (entradaGenero is null)
+            {
+                return;
+            }
 
-			Console.Write("Digite o seu nome: ");
-			string entradaTitulo = Console.ReadLine();
+            string? entradaTitulo = LerTextoObrigatorio("Digite o seu nome: ");
+            if (entradaTitulo is null)
+            {
+                return;
+            }
 
-			Console.Write("Digite a sua idade: ");
-			int entradaAno = int.Parse(Console.ReadLine());
+            int? entradaAno = LerInteiro("Digite a sua idade: ", minimo: 0);
+            if (entradaAno is null)
+            {
+                return;
+            }
 
-			foreach (int i in Enum.GetValues(typeof(Cargo)))
-			{
-				Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Cargo), i));
-			}
-			Console.Write("Digite o seu cargo entre as opções acima: ");
-			int entradaCargo = int.Parse(Console.ReadLine());
-			CadastroProj novoFuncionario = new CadastroProj(id: repositorio.ProximoId(),
-										genero: (Genero)entradaGenero,
-										nome: entradaTitulo,
-										idade: entradaAno,
-										cargo: (Cargo)entradaCargo);
+            ExibirOpcoesEnum<Cargo>();
+            Cargo? entradaCargo = LerEnum<Cargo>("Digite o seu cargo entre as opções acima: ");
+            if (entradaCargo is null)
+            {
+                return;
+            }
 
-			repositorio.Insere(novoFuncionario);
-		}
+            CadastroProj novoFuncionario = new CadastroProj(id: repositorio.ProximoId(),
+                                        genero: entradaGenero.Value,
+                                        nome: entradaTitulo,
+                                        idade: entradaAno.Value,
+                                        cargo: entradaCargo.Value);
+
+            repositorio.Insere(novoFuncionario);
+        }
 
         private static string ObterOpcaoUsuario()
-		{
-			Console.WriteLine();
+        {
+            Console.WriteLine();
             Console.WriteLine("################################");
-			Console.WriteLine("# Painel de funcionários ativo! #");
+            Console.WriteLine("# Painel de funcionários ativo! #");
             Console.WriteLine("################################");
 
-			Console.WriteLine(" - Informe a opção desejada -");
+            Console.WriteLine(" - Informe a opção desejada -");
 
-			Console.WriteLine("1 - Listar funcionários");
-			Console.WriteLine("2 - Inserir novo funcionário");
-			Console.WriteLine("3 - Atualizar dados");
-			Console.WriteLine("4 - Excluir funcionário");
-			Console.WriteLine("5 - Visualizar funcionários");
-			Console.WriteLine("C - Limpar Tela");
-			Console.WriteLine("X - Sair");
-			Console.WriteLine();
+            Console.WriteLine("1 - Listar funcionários");
+            Console.WriteLine("2 - Inserir novo funcionário");
+            Console.WriteLine("3 - Atualizar dados");
+            Console.WriteLine("4 - Excluir funcionário");
+            Console.WriteLine("5 - Visualizar funcionários");
+            Console.WriteLine("C - Limpar Tela");
+            Console.WriteLine("X - Sair");
+            Console.WriteLine();
 
-			string opcaoUsuario = Console.ReadLine().ToUpper();
-			Console.WriteLine();
-			return opcaoUsuario;
-		}
+            string opcaoUsuario = (Console.ReadLine() ?? string.Empty).Trim().ToUpperInvariant();
+            Console.WriteLine();
+            return opcaoUsuario;
+        }
+
+        private static int? LerIdFuncionario(string mensagem)
+        {
+            int? id = LerInteiro(mensagem, minimo: 0);
+            if (id is null)
+            {
+                return null;
+            }
+
+            if (id.Value >= repositorio.Lista().Count)
+            {
+                Console.WriteLine("Funcionário não encontrado.");
+                return null;
+            }
+
+            return id.Value;
+        }
+
+        private static int? LerInteiro(string mensagem, int? minimo = null)
+        {
+            Console.Write(mensagem);
+            string? entrada = Console.ReadLine();
+
+            if (!int.TryParse(entrada, out int valor))
+            {
+                Console.WriteLine("Valor inválido. Informe um número inteiro.");
+                return null;
+            }
+
+            if (minimo.HasValue && valor < minimo.Value)
+            {
+                Console.WriteLine($"Valor inválido. Informe um número maior ou igual a {minimo.Value}.");
+                return null;
+            }
+
+            return valor;
+        }
+
+        private static TEnum? LerEnum<TEnum>(string mensagem) where TEnum : struct, Enum
+        {
+            int? valor = LerInteiro(mensagem);
+            if (valor is null)
+            {
+                return null;
+            }
+
+            if (!Enum.IsDefined(typeof(TEnum), valor.Value))
+            {
+                Console.WriteLine("Opção inválida.");
+                return null;
+            }
+
+            return (TEnum)Enum.ToObject(typeof(TEnum), valor.Value);
+        }
+
+        private static string? LerTextoObrigatorio(string mensagem)
+        {
+            Console.Write(mensagem);
+            string? entrada = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(entrada))
+            {
+                Console.WriteLine("Valor obrigatório.");
+                return null;
+            }
+
+            return entrada.Trim();
+        }
+
+        private static void ExibirOpcoesEnum<TEnum>() where TEnum : struct, Enum
+        {
+            foreach (int i in Enum.GetValues(typeof(TEnum)))
+            {
+                Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(TEnum), i));
+            }
+        }
     }
 }

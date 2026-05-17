@@ -1,10 +1,14 @@
 # Mapa do projeto
 
 <!-- AUTO-GENERATED:START -->
+- `.env.example`
+- `.gitignore`
+- `AGENTS.md`
 - `Cadastro.csproj`
 - `CLAUDE.md`
 - `Program.cs`
 - `README.md`
+- `README_AI.md`
 - `Classes\CadastroProj.cs`
 - `Classes\cadastroRepo.cs`
 - `Classes\EntidadeBase.cs`
@@ -37,7 +41,6 @@
 - `bin\Debug\net6.0\Cadastro.runtimeconfig.json`
 - `bin\Debug\net6.0\ref\Cadastro.dll`
 <!-- AUTO-GENERATED:END -->
-
 <!-- JARVIS-AUTO:START -->
 ## Estrutura detectada
 - `.env.example`
@@ -47,6 +50,7 @@
 - `CLAUDE.md`
 - `Program.cs`
 - `README.md`
+- `README_AI.md`
 - `Classes\CadastroProj.cs`
 - `Classes\cadastroRepo.cs`
 - `Classes\EntidadeBase.cs`
@@ -63,7 +67,6 @@
 - `obj\Debug\net6.0\Cadastro.AssemblyInfo.cs`
 - `obj\Debug\net6.0\Cadastro.AssemblyInfoInputs.cache`
 - `obj\Debug\net6.0\Cadastro.assets.cache`
-- `obj\Debug\net6.0\Cadastro.csproj.AssemblyReference.cache`
 - `obj\Debug\net6.0\Cadastro.csproj.CoreCompileInputs.cache`
 - `obj\Debug\net6.0\Cadastro.csproj.FileListAbsolute.txt`
 - `obj\Debug\net6.0\Cadastro.dll`

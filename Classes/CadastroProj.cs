@@ -2,12 +2,12 @@ namespace Cadastro
 {
     public class CadastroProj : EntidadeBase
     {
-        private Genero Genero { get; set;}
-        private string Nome { get; set;}
-        private Cargo Cargo { get; set;}
-        private int Idade { get; set;}
+        private Genero Genero { get; set; }
+        private string Nome { get; set; }
+        private Cargo Cargo { get; set; }
+        private int Idade { get; set; }
 
-        private bool Excluido {get; set;}
+        private bool Excluido { get; set; }
 
         public CadastroProj(int id, Genero genero, string nome, Cargo cargo, int idade)
         {
@@ -45,8 +45,8 @@ namespace Cadastro
             this.Excluido = true;
         }
         public bool retornaExcluido()
-		{
-			return this.Excluido;
-		}
+        {
+            return this.Excluido;
+        }
     }
 }

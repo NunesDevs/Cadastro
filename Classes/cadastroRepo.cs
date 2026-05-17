@@ -10,7 +10,7 @@ namespace Cadastro
         private List<CadastroProj> listCadastroProj = new List<CadastroProj>();
         public void Atualiza(int id, CadastroProj entidade)
         {
-            listCadastroProj[id] = entidade;        
+            listCadastroProj[id] = entidade;
         }
 
         public void Exclui(int id)
