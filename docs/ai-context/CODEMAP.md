@@ -1,0 +1,81 @@
+# Mapa do projeto
+
+<!-- AUTO-GENERATED:START -->
+- `Cadastro.csproj`
+- `CLAUDE.md`
+- `Program.cs`
+- `README.md`
+- `Classes\CadastroProj.cs`
+- `Classes\cadastroRepo.cs`
+- `Classes\EntidadeBase.cs`
+- `Enum\Cargo.cs`
+- `Enum\Genero.cs`
+- `Interfaces\IRepositorio.cs`
+- `obj\Cadastro.csproj.nuget.dgspec.json`
+- `obj\Cadastro.csproj.nuget.g.props`
+- `obj\Cadastro.csproj.nuget.g.targets`
+- `obj\project.assets.json`
+- `obj\project.nuget.cache`
+- `obj\Debug\net6.0\.NETCoreApp,Version=v6.0.AssemblyAttributes.cs`
+- `obj\Debug\net6.0\apphost.exe`
+- `obj\Debug\net6.0\Cadastro.AssemblyInfo.cs`
+- `obj\Debug\net6.0\Cadastro.AssemblyInfoInputs.cache`
+- `obj\Debug\net6.0\Cadastro.assets.cache`
+- `obj\Debug\net6.0\Cadastro.csproj.AssemblyReference.cache`
+- `obj\Debug\net6.0\Cadastro.csproj.CoreCompileInputs.cache`
+- `obj\Debug\net6.0\Cadastro.csproj.FileListAbsolute.txt`
+- `obj\Debug\net6.0\Cadastro.dll`
+- `obj\Debug\net6.0\Cadastro.GeneratedMSBuildEditorConfig.editorconfig`
+- `obj\Debug\net6.0\Cadastro.genruntimeconfig.cache`
+- `obj\Debug\net6.0\Cadastro.GlobalUsings.g.cs`
+- `obj\Debug\net6.0\Cadastro.pdb`
+- `obj\Debug\net6.0\ref\Cadastro.dll`
+- `bin\Debug\net6.0\Cadastro.deps.json`
+- `bin\Debug\net6.0\Cadastro.dll`
+- `bin\Debug\net6.0\Cadastro.exe`
+- `bin\Debug\net6.0\Cadastro.pdb`
+- `bin\Debug\net6.0\Cadastro.runtimeconfig.json`
+- `bin\Debug\net6.0\ref\Cadastro.dll`
+<!-- AUTO-GENERATED:END -->
+
+<!-- JARVIS-AUTO:START -->
+## Estrutura detectada
+- `.env.example`
+- `.gitignore`
+- `AGENTS.md`
+- `Cadastro.csproj`
+- `CLAUDE.md`
+- `Program.cs`
+- `README.md`
+- `Classes\CadastroProj.cs`
+- `Classes\cadastroRepo.cs`
+- `Classes\EntidadeBase.cs`
+- `Enum\Cargo.cs`
+- `Enum\Genero.cs`
+- `Interfaces\IRepositorio.cs`
+- `obj\Cadastro.csproj.nuget.dgspec.json`
+- `obj\Cadastro.csproj.nuget.g.props`
+- `obj\Cadastro.csproj.nuget.g.targets`
+- `obj\project.assets.json`
+- `obj\project.nuget.cache`
+- `obj\Debug\net6.0\.NETCoreApp,Version=v6.0.AssemblyAttributes.cs`
+- `obj\Debug\net6.0\apphost.exe`
+- `obj\Debug\net6.0\Cadastro.AssemblyInfo.cs`
+- `obj\Debug\net6.0\Cadastro.AssemblyInfoInputs.cache`
+- `obj\Debug\net6.0\Cadastro.assets.cache`
+- `obj\Debug\net6.0\Cadastro.csproj.AssemblyReference.cache`
+- `obj\Debug\net6.0\Cadastro.csproj.CoreCompileInputs.cache`
+- `obj\Debug\net6.0\Cadastro.csproj.FileListAbsolute.txt`
+- `obj\Debug\net6.0\Cadastro.dll`
+- `obj\Debug\net6.0\Cadastro.GeneratedMSBuildEditorConfig.editorconfig`
+- `obj\Debug\net6.0\Cadastro.genruntimeconfig.cache`
+- `obj\Debug\net6.0\Cadastro.GlobalUsings.g.cs`
+- `obj\Debug\net6.0\Cadastro.pdb`
+- `obj\Debug\net6.0\ref\Cadastro.dll`
+- `bin\Debug\net6.0\Cadastro.deps.json`
+- `bin\Debug\net6.0\Cadastro.dll`
+- `bin\Debug\net6.0\Cadastro.exe`
+- `bin\Debug\net6.0\Cadastro.pdb`
+- `bin\Debug\net6.0\Cadastro.runtimeconfig.json`
+- `bin\Debug\net6.0\ref\Cadastro.dll`
+<!-- JARVIS-AUTO:END -->
