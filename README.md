@@ -1,37 +1,44 @@
-# Projeto cadastro de funcionários
+# Cadastro de funcionários
 
-## Solução simples sem banco de dados pensado no cadastro de funcionários em C#.
+Aplicação de console em C# para praticar cadastro, consulta, atualização e exclusão lógica de funcionários. Os dados ficam em uma `List<CadastroProj>` na memória do processo: encerrar o programa descarta os registros.
 
-### Requisitos para rodar:
+## Funcionalidades
 
-.net
+- Listar e consultar funcionários por identificador.
+- Cadastrar nome, idade, gênero e cargo.
+- Atualizar o cadastro e marcar um funcionário como excluído.
+- Validar campos obrigatórios, números inteiros, opções dos enums e identificadores existentes na interface de console.
 
-<a href = "https://dotnet.microsoft.com/en-us/download" target="_blank">
+A listagem mantém registros excluídos com a indicação `*Excluído*`. Não há banco de dados, autenticação, API ou interface web.
 
-<p> Para baixar clique aqui</p>
+## Requisitos e execução
 
-</a>
+O arquivo `Cadastro.csproj` usa **.NET 8** (`net8.0`). Instale o SDK .NET 8; apenas o runtime não permite compilar o código.
 
-Editor de texto de sua preferencia ou IDE.
+Na pasta do projeto:
 
- ## Funcionamento:
+```powershell
+dotnet --list-sdks
+dotnet restore Cadastro.csproj
+dotnet build Cadastro.csproj --configuration Release
+dotnet run --project Cadastro.csproj
+```
 
-#### Para rodar digite ```dotnet run ``` no console.
+Escolha `1` a `5` para as operações do menu, `C` para limpar a tela e `X` para sair. Use dados fictícios durante os exercícios.
 
-#### Menu com funções para interagir.
+## Organização
 
-################################
+- `Program.cs`: interação no terminal e validação das entradas.
+- `Classes/CadastroProj.cs`: entidade de funcionário e exclusão lógica.
+- `Classes/cadastroRepo.cs`: armazenamento em memória e operações do repositório.
+- `Interfaces/IRepositorio.cs`: contrato do repositório.
+- `Enum/`: cargos e gêneros aceitos.
+- `docs/ai-context/`: contexto histórico de manutenção; registros antigos não substituem a inspeção do código atual.
 
-Painel de funcionários ativo!
+## Verificação e limites
 
-################################
+Não há projeto de testes automatizados neste repositório. Para um smoke test manual, cadastre um registro fictício, consulte o ID, atualize-o, marque-o como excluído e confira a listagem. Confira também idade inválida, nome vazio e ID inexistente.
 
- ##### Informe a opção desejada
- ###### 1 - Listar funcionários
- ###### 2 - Inserir novo funcionário
- ###### 3 - Atualizar dados
- ###### 4 - Excluir funcionário
- ###### 5 - Visualizar funcionários
- ###### C - Limpar Tela
- ###### X - Sair
- ##### Obrigado por utilizar nossos serviços.
+Na auditoria de 01/11/2026 foi encontrado o runtime .NET 8, mas nenhum SDK; o build do código-fonte não foi executado nesse ambiente. Artefatos históricos em `bin/` e `obj/` já estavam rastreados e foram preservados. Essas pastas passam a ser ignoradas para novos arquivos; sua retirada do histórico exige uma mudança separada.
+
+O programa é um exercício local. Não deve armazenar informações reais de funcionários: faltam persistência, controle de acesso, auditoria e política de retenção. Não há deploy configurado nem licença identificada na raiz.

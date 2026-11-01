@@ -21,3 +21,7 @@ uploads/
 tmp/
 temp/
 cache/
+
+# Artefatos de compilacao .NET (arquivos historicos rastreados preservados).
+/bin/
+/obj/
