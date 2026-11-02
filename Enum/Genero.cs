@@ -1,7 +1,6 @@
 namespace Cadastro
 {
 
-
     public enum Genero
     {
         Masculino = 1,

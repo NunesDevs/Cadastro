@@ -13,6 +13,8 @@ namespace Cadastro
 
             while (opcaoUsuario != "X")
             {
+                try
+                {
                 switch (opcaoUsuario)
                 {
                     case "1":
@@ -31,13 +33,16 @@ namespace Cadastro
                         VisualizarFuncionarios();
                         break;
                     case "C":
-                        Console.Clear();
+                        if (!Console.IsOutputRedirected) Console.Clear();
                         break;
                     default:
                         Console.WriteLine("Opção inválida. Tente novamente.");
                         break;
                 }
 
+                }
+                catch (Exception error) when (error is ArgumentException || error is System.Collections.Generic.KeyNotFoundException)
+                { Console.WriteLine(error.Message); }
                 opcaoUsuario = ObterOpcaoUsuario();
             }
 
@@ -189,7 +194,7 @@ namespace Cadastro
             Console.WriteLine("X - Sair");
             Console.WriteLine();
 
-            string opcaoUsuario = (Console.ReadLine() ?? string.Empty).Trim().ToUpperInvariant();
+            string opcaoUsuario = (Console.ReadLine() ?? "X").Trim().ToUpperInvariant();
             Console.WriteLine();
             return opcaoUsuario;
         }
@@ -202,7 +207,7 @@ namespace Cadastro
                 return null;
             }
 
-            if (id.Value >= repositorio.Lista().Count)
+            if (repositorio.RetornarPorId(id.Value) == null)
             {
                 Console.WriteLine("Funcionário não encontrado.");
                 return null;

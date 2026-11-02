@@ -25,3 +25,9 @@ cache/
 # Artefatos de compilacao .NET (arquivos historicos rastreados preservados).
 /bin/
 /obj/
+
+# .NET output
+**/bin/
+**/obj/
+artifacts/
+TestResults/
